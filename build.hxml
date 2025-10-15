@@ -1,0 +1,6 @@
+--class-path src
+--library hxnodejs
+-D analyzer-optimize
+--dce full
+TexturePacker
+--js build/index.js

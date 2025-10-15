@@ -1,0 +1,16 @@
+{
+  "name": "khm-texture-packer",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "RblSb",
+  "type": "commonjs",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "maxrects-packer": "^2.7.3",
+    "sharp": "^0.34.4"
+  }
+}
