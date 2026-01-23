@@ -186,6 +186,7 @@ class TexturePacker {
 					});
 				}).then(_ -> {
 					if (config.trimMode == None) return Promise.resolve(null);
+					if (imgData.width < 3 || imgData.height < 3) return Promise.resolve(null);
 					return Sharp.create(imgData.data).trim({
 						threshold: config.alphaThreshold,
 						background: {
@@ -218,6 +219,9 @@ class TexturePacker {
 								imgData.height = trimHeight;
 								imgData.data = trimResult.data;
 						}
+						return Promise.resolve(null);
+					}).catchError(err -> {
+						trace('Warning: Failed to trim image $file: $err');
 						return Promise.resolve(null);
 					});
 				}).then(_ -> {
