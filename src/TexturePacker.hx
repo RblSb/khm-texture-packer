@@ -196,6 +196,8 @@ class TexturePacker {
 							alpha: 0
 						}
 					}).toBufferWithInfo().then(trimResult -> {
+						// skip RGB without alpha
+						if (trimResult.info.channels < 4) return Promise.resolve(null);
 						final trimOffsetLeft = trimResult.info.trimOffsetLeft;
 						final trimOffsetTop = trimResult.info.trimOffsetTop;
 						final trimWidth = trimResult.info.width;
