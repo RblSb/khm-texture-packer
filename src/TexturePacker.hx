@@ -188,6 +188,7 @@ class TexturePacker {
 					if (config.trimMode == None) return Promise.resolve(null);
 					if (imgData.width < 3 || imgData.height < 3) return Promise.resolve(null);
 					return Sharp.create(imgData.data).trim({
+						lineArt: true,
 						threshold: config.alphaThreshold,
 						background: {
 							r: 0,

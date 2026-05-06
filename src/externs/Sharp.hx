@@ -27,6 +27,7 @@ extern class Sharp {
 	function jpeg(?options:JpegOptions):Sharp;
 	function webp(?options:WebpOptions):Sharp;
 	function avif(?options:AvifOptions):Sharp;
+	function raw():Sharp;
 	function toBuffer():Promise<Buffer>;
 	extern inline function toBufferWithInfo():Promise<{data:Buffer, info:OutputInfo}> {
 		final toBuffer:Dynamic = toBuffer;
@@ -84,7 +85,8 @@ typedef ResizeOptions = {
 
 typedef TrimOptions = {
 	?threshold:Int,
-	?background:BackgroundColor
+	?background:BackgroundColor,
+	?lineArt:Bool,
 }
 
 typedef CompositeImage = {
